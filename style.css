@@ -1,0 +1,152 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #282c34; /* Koyu arka plan */
+    color: #f8f8f2;
+}
+
+.container {
+    background-color: #3b4252;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    color: #88c0d0;
+    margin-bottom: 20px;
+    font-size: 2em;
+}
+
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.palette {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #4c566a;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.color-box {
+    width: 30px;
+    height: 30px;
+    border: 2px solid transparent;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: border-color 0.2s, transform 0.1s;
+}
+
+.color-box:hover {
+    transform: scale(1.05);
+}
+
+.color-box.selected {
+    border-color: #88c0d0; /* Seçili renk için vurgu */
+    box-shadow: 0 0 8px rgba(136, 192, 208, 0.7);
+}
+
+/* Önceden tanımlı renklerin arka planları */
+[data-color="#000000"] { background-color: #000000; }
+[data-color="#FFFFFF"] { background-color: #FFFFFF; }
+[data-color="#FF0000"] { background-color: #FF0000; }
+[data-color="#00FF00"] { background-color: #00FF00; }
+[data-color="#0000FF"] { background-color: #0000FF; }
+[data-color="#FFFF00"] { background-color: #FFFF00; }
+[data-color="#FF00FF"] { background-color: #FF00FF; }
+[data-color="#00FFFF"] { background-color: #00FFFF; }
+[data-color="#FFA500"] { background-color: #FFA500; }
+[data-color="#800080"] { background-color: #800080; }
+[data-color="#A52A2A"] { background-color: #A52A2A; }
+
+#customColorPicker {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    overflow: hidden; /* Renk seçicinin kenarlarını yuvarlamak için */
+}
+
+#customColorPicker::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+#customColorPicker::-webkit-color-swatch {
+    border: 2px solid #88c0d0; /* Seçici çerçevesi */
+    border-radius: 4px;
+}
+#customColorPicker::-moz-color-swatch-wrapper {
+    padding: 0;
+}
+#customColorPicker::-moz-color-swatch {
+    border: 2px solid #88c0d0;
+    border-radius: 4px;
+}
+
+
+.tools {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #4c566a;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.tool-button {
+    background-color: #88c0d0;
+    color: #2e3440;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.tool-button:hover {
+    background-color: #81a1c1;
+    transform: translateY(-2px);
+}
+
+.tool-button.active {
+    background-color: #5e81ac; /* Aktif araç için farklı renk */
+    color: #eceff4;
+    box-shadow: 0 0 10px rgba(94, 129, 172, 0.7);
+}
+
+#pixelCanvas {
+    border: 1px solid #4c566a; /* Canvas etrafında ince bir çerçeve */
+    background-color: #FFFFFF; /* Varsayılan tuval arka planı (beyaz) */
+    image-rendering: optimizeSpeed; /* Eski tarayıcılar için pikselleştirme */
+    image-rendering: -moz-crisp-edges; /* Firefox için */
+    image-rendering: -webkit-optimize-contrast; /* Webkit için */
+    image-rendering: optimize-contrast; /* Diğer tarayıcılar için */
+    image-rendering: pixelated; /* Modern tarayıcılar için */
+    border-collapse: collapse; /* Eğer canvas üzerine grid çizilecekse */
+    width: 512px; /* 128 * 4 = 512px (4 kat büyütme) */
+    height: 512px; /* 128 * 4 = 512px (4 kat büyütme) */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}

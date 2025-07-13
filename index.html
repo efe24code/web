@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piksel Art Düzenleyici</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Piksel Art Düzenleyici</h1>
+        <div class="controls">
+            <div class="palette">
+                <div class="color-box selected" data-color="#000000"></div>
+                <div class="color-box" data-color="#FFFFFF"></div>
+                <div class="color-box" data-color="#FF0000"></div>
+                <div class="color-box" data-color="#00FF00"></div>
+                <div class="color-box" data-color="#0000FF"></div>
+                <div class="color-box" data-color="#FFFF00"></div>
+                <div class="color-box" data-color="#FF00FF"></div>
+                <div class="color-box" data-color="#00FFFF"></div>
+                <div class="color-box" data-color="#FFA500"></div> <div class="color-box" data-color="#800080"></div> <div class="color-box" data-color="#A52A2A"></div> <input type="color" id="customColorPicker" value="#000000">
+            </div>
+            <div class="tools">
+                <button id="pencilTool" class="tool-button active">Kalem</button>
+                <button id="eraserTool" class="tool-button">Silgi</button>
+                <button id="fillTool" class="tool-button">Doldur</button>
+                <button id="clearCanvas" class="tool-button">Temizle</button>
+                <button id="downloadImage" class="tool-button">PNG İndir</button>
+            </div>
+            <div class="zoom-controls">
+                <button id="zoomOut" class="tool-button">-</button>
+                <span id="zoomLevel">100%</span>
+                <button id="zoomIn" class="tool-button">+</button>
+            </div>
+        </div>
+        <canvas id="pixelCanvas" width="128" height="128"></canvas>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
